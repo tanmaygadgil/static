@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        // stage('Build'){
+        stage('Build'){
         //     steps{
         //         sh 'echo "Hello World"'
         //         sh '''
@@ -10,8 +10,9 @@ pipeline{
         //         '''
         //     }
         // }
-        withAWS(region:'us-east-2') {
-                s3Upload(file:'index.html', bucket:'tanmay-jenkins-project-2', path:'index.html')
-            }
+            withAWS(region:'us-east-2', ) {
+                    s3Upload(file:'index.html', bucket:'tanmay-jenkins-project-2', path:'index.html')
+                }
+        }
     }
 }
